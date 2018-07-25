@@ -1,5 +1,5 @@
 # Create-AWS-Instance-Script
-Quick simple Bash script to create an AWS instance
+Quick simple Bash script to create an AWS instance and SSH into it
 
 Run with the following:
 ./createaws.bash <ami number> <private key> <instance name>
