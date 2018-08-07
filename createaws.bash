@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ ( $1 != "" && $2 != "" && $3 != "") ]]; then
-    AMI="$1"
+if [[ ( $2 != "" && $3 != "") ]]; then
+    AMI="ami-a042f4d8"
     KEY="$2"
     NAME="$3"
     INSTANCE="$(aws ec2 run-instances --image-id $AMI --count 1 --instance-type t2.micro --key-name $KEY --security-groups jenkins | grep InstanceId)"
@@ -12,6 +12,6 @@ if [[ ( $1 != "" && $2 != "" && $3 != "") ]]; then
     ssh -i ${KEY} -l centos ${ID1}
     #aws ec2 terminate-instances --instance-ids "${INSTANCE1}"
 else
-    echo "AMI, private key and instance name cannot be empty"
+    echo "private key and instance name cannot be empty"
 fi
 
